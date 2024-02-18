@@ -10,4 +10,6 @@ jobs:
       - name: List files in the repository
         run: |
           ls /home/runner/work/NewSlack/NewSlack/slack
-     
+      - name: send message to slack
+        id: slack
+        uses: SimaRaifen/NewSlack/slack@v1
