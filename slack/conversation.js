@@ -15,7 +15,7 @@ export default class Conversation {
     async conversations() {
         try {
             const result = await this.client.conversations.list();
-            this.getConversationsId(result.channels);
+            //this.getConversationsId(result.channels);
         }
         catch (error) {
             console.error(error);
