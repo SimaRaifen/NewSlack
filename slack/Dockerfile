@@ -4,4 +4,4 @@ FROM node
 COPY conversation.js /conversation.js
 
 # Code file to execute when the docker container starts up (`entrypoint.sh`)
-ENTRYPOINT ["/conversation.js"]
+CMD ["node","/conversation.js"]
