@@ -1,0 +1,15 @@
+on: [push]
+
+jobs:
+  send_message_job:
+    runs-on: ubuntu-latest
+    name: send message to slack
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - name: List files in the repository
+        run: |
+          ls /home/runner/work/TryAction/TryAction/try-action-sr
+      - name: send message to slack
+        id: slack
+        uses: SimaRaifen/TryAction/try-action-sr@v1
