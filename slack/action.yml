@@ -2,4 +2,4 @@ name: 'Slack API'
 description: 'execut the slack Web API code'
 runs:
   using: 'docker'
-  image: 'Dockerfile'
+  main: 'dist/conversation.js'
