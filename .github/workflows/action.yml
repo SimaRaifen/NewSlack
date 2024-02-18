@@ -10,6 +10,10 @@ jobs:
       - name: List files in the repository
         run: |
           ls /home/runner/work/NewSlack/NewSlack/slack
+      - name: Build docker images
+        run: docker build -t slack/Dockerfile
+      - name: Run tests
+        run: docker run -it -v C:\Users\Sriefen\newSlack\slack:/slack
       - name: send message to slack
         id: slack
         uses: SimaRaifen/NewSlack/slack@v2
