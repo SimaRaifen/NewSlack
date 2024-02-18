@@ -46,8 +46,6 @@ export default class Conversation {
     }
     
     async sendMessageToUsers() {
-        console.log(this.channelId+" ca");
-        console.log( this.userId+" ui");
         try {
             await this.client.chat.postEphemeral({
                 channel: this.channelId,
