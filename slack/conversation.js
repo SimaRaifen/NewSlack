@@ -1,4 +1,5 @@
 import { WebClient, LogLevel } from '@slack/web-api';
+import {core} from '@actions/core';
 import { } from 'dotenv/config'
 
 export default class Conversation {
@@ -18,7 +19,7 @@ export default class Conversation {
             this.getConversationsId(result.channels);
         }
         catch (error) {
-            console.error(error);
+            core.setFailed(error.message)
         }
     }
 
@@ -54,7 +55,7 @@ export default class Conversation {
             });
         }
         catch (error) {
-            console.error(error);
+            core.setFailed(error.message)
         }
     }
 }
