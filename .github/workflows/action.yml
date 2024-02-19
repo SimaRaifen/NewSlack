@@ -11,7 +11,7 @@ jobs:
         run: |
           ls /home/runner/work/NewSlack/NewSlack/slack
       - name: env
-        run: echo "💡 ${{ secrets.B_TOKEN }} env."
+        run: echo "💡 ${{ secrets.TOKEN }} env."
       - name: send message to slack
         id: slack
         uses: SimaRaifen/NewSlack/slack@newBranch
