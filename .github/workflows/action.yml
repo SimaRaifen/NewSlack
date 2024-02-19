@@ -13,3 +13,5 @@ jobs:
       - name: send message to slack
         id: slack
         uses: SimaRaifen/NewSlack/slack@newBranch
+        with:
+         env: B_TOKEN:B_TOKEN
