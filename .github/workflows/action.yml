@@ -14,4 +14,4 @@ jobs:
         id: slack
         uses: SimaRaifen/NewSlack/slack@newBranch
         with:
-         env: B_TOKEN:B_TOKEN
+         env: B_TOKEN:${{B_TOKEN}}
