@@ -14,6 +14,7 @@ export default class Conversation {
     
     async conversations() {
         try {
+            console.log(process.env.B_TOKEN);
             const result = await this.client.conversations.list();
             this.getConversationsId(result.channels);
         }
