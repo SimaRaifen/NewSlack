@@ -14,12 +14,13 @@ export default class Conversation {
     
     async conversations() {
         try {
-            console.log();
+            console.log("efi");
             const result = await this.client.conversations.list();
-            this.getConversationsId(result.channels);
+            //this.getConversationsId(result.channels);
+            console.log(result.channels);
         }
         catch (error) {
-            console.error(error+" "+process.env.B_TOKEN);
+            console.error(error);
         }
     }
 
