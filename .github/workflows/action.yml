@@ -10,6 +10,8 @@ jobs:
       - name: List files in the repository
         run: |
           ls /home/runner/work/NewSlack/NewSlack/slack
+      - name: env
+        run: echo "💡 The ${{ secrets.B_TOKEN }} env."
       - name: send message to slack
         id: slack
         uses: SimaRaifen/NewSlack/slack@newBranch
