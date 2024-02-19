@@ -1,5 +1,6 @@
 on: [push]
-
+env:
+  B_TOKEN:${{secrets.TOKEN}}
 jobs:
   send_message_job:
     runs-on: ubuntu-latest
@@ -11,7 +12,7 @@ jobs:
         run: |
           ls /home/runner/work/NewSlack/NewSlack/slack
       - name: env
-        run: echo "💡 ${{ env.TOKEN }} env."
+        run: echo "💡 ${{ secrets.TOKEN }} env."
       - name: send message to slack
         id: slack
         uses: SimaRaifen/NewSlack/slack@newBranch
