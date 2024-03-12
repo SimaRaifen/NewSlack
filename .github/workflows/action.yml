@@ -12,4 +12,5 @@ jobs:
       - name: send message to slack
         id: slack
         uses: SimaRaifen/NewSlack/slack@newBranch
-      
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
