@@ -13,4 +13,4 @@ jobs:
         id: slack
         uses: SimaRaifen/NewSlack/slack@newBranch
         env:
-          B_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          B_TOKEN: ${{ secrets.TOKEN }}
