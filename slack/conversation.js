@@ -2,16 +2,16 @@ import { WebClient, LogLevel } from '@slack/web-api';
 import { } from 'dotenv/config'
 
 export default class Conversation {
-    
+
     constructor(channelId, useId) {
-        process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;      
-        this.channelId =channelId;
+        process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
+        this.channelId = channelId;
         this.userId = useId;
         this.client = new WebClient(process.env.B_TOKEN, {
-            logLevel:LogLevel.DEBUG
+            logLevel: LogLevel.DEBUG
         });
     }
-    
+
     async conversations() {
         try {
             const result = await this.client.conversations.list();
@@ -28,29 +28,36 @@ export default class Conversation {
             this.conversationMembers();
         }
     }
-    
+
     async conversationMembers() {
         const result = await this.client.conversations.members({
-            channel: this.channelId
+            channel: "C06G591HQHJ"
         });
-        if(result.members){
+        if (result.members) {
             this.channelUsers(result.members)
         }
-    }
-    
-    channelUsers(membersArray) {
-        for (let i = 0; i < membersArray.length; i++) {
-            this.userId = membersArray[i];
-            this.sendMessageToUsers();
+        else{
+            console.log('no');
         }
     }
-    
+
+    channelUsers(membersArray) {
+        console.log(membersArray);
+        for (let i = 0; i < membersArray.length; i++) {
+             if(membersArray[i].name=="rachelf" || membersArray[i].name=="simar" ){
+                this.userId = membersArray[i];
+                this.sendMessageToUsers();
+            }
+        }
+    }
+
     async sendMessageToUsers() {
         try {
             await this.client.chat.postEphemeral({
                 channel: this.channelId,
                 user: this.userId,
-                text: "I get information of you!"
+                text: "I get information of you!",
+                log:console.log(this.channelId, this.userId)
             });
         }
         catch (error) {
@@ -59,5 +66,5 @@ export default class Conversation {
     }
 }
 
-const con = new Conversation("","");
+const con = new Conversation("", "");
 con.conversations();
