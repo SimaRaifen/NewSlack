@@ -1,0 +1,20 @@
+on: [push]
+jobs:
+  send_message_job:
+    runs-on: ubuntu-latest
+    name: send message to slack
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - name: List files in the repository
+        run: |
+          ls /home/runner/work/NewSlack/NewSlack/slack
+      - name: send message to slack
+        id: slack
+        uses: SimaRaifen/NewSlack/slack@newBranch
+        env:
+          B_TOKEN: ${{ secrets.TOKEN }}
+      - name: use catalog
+        id: catalog
+        uses: catalog/action@v3.0.0
+
