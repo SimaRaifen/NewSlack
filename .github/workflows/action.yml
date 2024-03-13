@@ -14,7 +14,7 @@ jobs:
         uses: SimaRaifen/NewSlack/slack@newBranch
         env:
           B_TOKEN: ${{ secrets.TOKEN }}
-      -name: use catalog
-       id: catalog
-       uses: catalog/action@v3.0.0
+      - name: use catalog
+        id: catalog
+        uses: catalog/action@v3.0.0
 
